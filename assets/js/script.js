@@ -21,7 +21,7 @@ class Multimedia{
 class Reproductor extends Multimedia {
     constructor(url,id){
         super(url)
-        this._id = id
+        let _id = id
         this._getId = ()=> _id
         this._setId = (id) => _id = id
     }
@@ -39,6 +39,7 @@ class Reproductor extends Multimedia {
     
     playMultimedia = () =>{
         //llama a la iife
+       return iife.funcionPublica(this.url,this.id)
     }
 
 }
@@ -46,6 +47,8 @@ class Reproductor extends Multimedia {
 const iife = (()=>{    
     const funcionPrivada = (url,id) =>{
         //mostrar video en HTML
+         $(`#${id}>iframe`).attr("src",url)
+        
     }
     return{
         funcionPublica : (url,id) => {
@@ -53,3 +56,7 @@ const iife = (()=>{
         }
     }
 })()
+
+const testMulti = new Reproductor("https://www.youtube.com/watch?v=3a0I8ICR1Vg","peliculas")
+
+testMulti.playMultimedia()
