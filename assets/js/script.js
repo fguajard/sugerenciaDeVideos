@@ -38,7 +38,7 @@ class Reproductor extends Multimedia {
     }
     
     playMultimedia = () =>{
-        //llama a la iife
+        //llama a la iife        
        return iife.funcionPublica(this.url,this.id)
     }
 
@@ -47,7 +47,7 @@ class Reproductor extends Multimedia {
 const iife = (()=>{    
     const funcionPrivada = (url,id) =>{
         //mostrar video en HTML
-         $(`#${id}>iframe`).attr("src",url)
+         $(`#${id}>iframe`).attr("src",url)         
         
     }
     return{
@@ -57,6 +57,6 @@ const iife = (()=>{
     }
 })()
 
-const testMulti = new Reproductor("https://www.youtube.com/watch?v=3a0I8ICR1Vg","peliculas")
+ const testMulti = new Reproductor("https://www.youtube.com/embed/dQw4w9WgXcQ","peliculas")
 
 testMulti.playMultimedia()
